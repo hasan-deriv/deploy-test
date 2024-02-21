@@ -3,7 +3,7 @@ name: Generate preview link
 on:
     push:
         branches:
-            - main
+            - maing
 
 jobs:
     install_modules:
@@ -23,4 +23,4 @@ jobs:
             - name: Upload
               uses: actions/upload-artifact@v4
               with:
-                path: artifact
+                path: ./node_modules
