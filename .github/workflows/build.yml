@@ -26,10 +26,11 @@ jobs:
                 path: ./node_modules
 
     build_and_publish_row:
+        needs: install_modules
         runs-on: Ubuntu-latest
         steps:
             - name: Checkout to repo
-              uses: actions/chekout@v4
+              uses: actions/checkout@v4
 
             - name: Download artifact
               uses: actions/download-artifact@v4
