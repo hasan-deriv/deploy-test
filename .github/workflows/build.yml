@@ -3,7 +3,7 @@ name: Generate preview link
 on:
     push:
         branches:
-            - maing
+            - main
 
 jobs:
     install_modules:
