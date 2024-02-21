@@ -1,0 +1,16 @@
+{
+  "name": "gatsby-starter-theme-workspace",
+  "private": true,
+  "version": "0.0.1",
+  "license": "0BSD",
+  "scripts": {
+    "build:row": "npm run build --workspace row",
+    "serve:row": "npm run serve --workspace row",
+    "build:eu": "npm run build --workspace eu",
+    "serve:eu": "npm run serve --workspace eu"
+  },
+  "workspaces": [
+    "./themes/*",
+    "./sites/*"
+  ]
+}
