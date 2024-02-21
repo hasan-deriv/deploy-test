@@ -1,0 +1,21 @@
+name: Generate preview link
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    install_modules:
+        runs-on: Ubuntu-latest
+        steps:
+            - name: Checkout to repo
+              uses: actions/checkout@v4
+            
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+
+            - name: Install dependency
+              run: npm install
