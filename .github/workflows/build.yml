@@ -17,13 +17,34 @@ jobs:
               with:
                 node-version: 18
 
+            - name: Restore dependencies cache
+              id: npm-cache
+              uses: actions/cache@v4
+              with:
+                path: node_modules
+                key: npm-dependencies-${{ hashFiles('./package-lock.json') }}
+
             - name: Install dependency
+              if: steps.npm-cache.outputs.cache-hit != 'true'
               run: npm install
 
     build_and_publish_row:
         needs: install_modules
         runs-on: Ubuntu-latest
         steps:
+            - name: Checkout to repo
+              uses: actions/checkout@v4
+
+            - name: Setup node
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+
+            - name: Restore dependencies cache
+              uses: actions/cache@v4
+              with:
+                path: node_modules
+                key: npm-dependencies-${{ hashFiles('./package-lock.json') }}
 
             - name: Build row
               run: npm run build:row
@@ -32,6 +53,19 @@ jobs:
       needs: install_modules
       runs-on: Ubuntu-latest
       steps:
+          - name: Checkout to repo
+            uses: actions/checkout@v4
+
+          - name: Setup node
+            uses: actions/setup-node@v4
+            with:
+              node-version: 18
+
+          - name: Restore dependencies cache
+            uses: actions/cache@v4
+            with:
+              path: node_modules
+              key: npm-dependencies-${{ hashFiles('./package-lock.json') }}
 
           - name: Build row
             run: npm run build:row
