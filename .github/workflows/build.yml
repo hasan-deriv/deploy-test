@@ -23,7 +23,7 @@ jobs:
             - name: Upload node modules
               uses: actions/upload-artifact@v4
               with:
-                name: node-modules
+                name: node_modules
                 path: node_modules
 
     build_and_publish_row:
@@ -41,7 +41,7 @@ jobs:
             - name: Download artifact
               uses: actions/download-artifact@v4
               with:
-                name: node-modules
+                name: node_modules
 
             - name: Check if node_modules exists
               run: test -d node_modules || echo "node_modules directory not found"
