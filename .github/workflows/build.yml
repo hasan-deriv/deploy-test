@@ -20,6 +20,12 @@ jobs:
             - name: Install dependency
               run: npm install
 
+            - name: Upload node modules
+              uses: actions/upload-artifact@v4
+              with:
+                name: node-modules
+                path: node_modules
+
     build_and_publish_row:
         needs: install_modules
         runs-on: Ubuntu-latest
@@ -31,6 +37,14 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: 18
+
+            - name: Download artifact
+              uses: actions/download-artifact@v4
+              with:
+                name: node-modules
+
+            - name: Display structure of downloaded files
+              run: ls -R
 
             - name: Build row
               run: npm run build:row
