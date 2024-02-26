@@ -46,5 +46,8 @@ jobs:
               with:
                 name: node-modules
 
+            - name: Display structure of downloaded files
+              run: ls -R
+
             - name: Build row
               run: npm run build:row
