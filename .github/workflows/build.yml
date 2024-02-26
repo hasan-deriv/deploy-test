@@ -23,7 +23,11 @@ jobs:
             - name: Upload node modules
               uses: actions/upload-artifact@v4
               with:
-                path: ./node_modules
+                name: node-modules
+                path: |
+                  ./node_modules
+                  ./sites/row/node_modules
+                  ./sites/eu/node_modules
 
     build_and_publish_row:
         needs: install_modules
