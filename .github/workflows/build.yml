@@ -44,6 +44,9 @@ jobs:
                 name: node_modules
                 path: node_modules
 
+            - name: gatsby
+              run: npm i -g gatsby
+
             - name: Display structure of downloaded files
               run: ls -R
 
