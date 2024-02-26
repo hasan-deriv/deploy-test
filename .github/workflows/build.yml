@@ -24,13 +24,6 @@ jobs:
         needs: install_modules
         runs-on: Ubuntu-latest
         steps:
-            - name: Checkout to repo
-              uses: actions/checkout@v4
-
-            - name: Setup node
-              uses: actions/setup-node@v4
-              with:
-                node-version: 18
 
             - name: Build row
               run: npm run build:row
@@ -39,25 +32,6 @@ jobs:
       needs: install_modules
       runs-on: Ubuntu-latest
       steps:
-          - name: Checkout to repo
-            uses: actions/checkout@v4
-
-          - name: Setup node
-            uses: actions/setup-node@v4
-            with:
-              node-version: 18
-
-          - name: Download artifact
-            uses: actions/download-artifact@v4
-            with:
-              name: node_modules
-              path: node_modules
-
-          - name: Display structure of downloaded files
-            run: ls -R
-
-          - name: Set permissions for node_modules
-            run: chmod -R 755 node_modules
 
           - name: Build row
             run: npm run build:row
