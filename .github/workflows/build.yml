@@ -43,6 +43,9 @@ jobs:
               with:
                 name: node_modules
 
+            - name: List downloaded files
+              run: ls -l
+
             - name: Check if node_modules exists
               run: test -d node_modules || echo "node_modules directory not found"
 
