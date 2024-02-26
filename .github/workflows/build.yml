@@ -44,11 +44,8 @@ jobs:
                 name: node_modules
                 path: node_modules
 
-            - name: List downloaded files
-              run: ls -l
-
-            - name: Check if node_modules exists
-              run: test -d node_modules || echo "node_modules directory not found"
+            - name: Display structure of downloaded files
+              run: ls -R
 
             - name: Set permissions for node_modules
               run: chmod -R 755 node_modules
