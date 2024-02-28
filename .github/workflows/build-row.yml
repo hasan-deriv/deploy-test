@@ -52,6 +52,15 @@ jobs:
             - name: Setup node
               uses: actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8
 
+            - name: Get build output from master cache
+              uses: actions/cache/restore@e12d46a63a90f2fae62d114769bbf2a179198b5c
+              with:
+                key: master-cache-public
+                restore-keys: |
+                    master-cache-public-replica
+                path: |
+                    sites/eu/.cache
+                    sites/eu/public
 
             - name: Cache Dependencies
               id: cache-npm
