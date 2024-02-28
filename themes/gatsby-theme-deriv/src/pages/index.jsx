@@ -3,7 +3,7 @@ import React from 'react'
 const HomePage = ({pageContext}) => {
     const {isEUPage} = pageContext;
     return (
-        <div style={{backgroundColor: "#000", color: "#fff"}}>HomePage de {isEUPage ? "EU": "ROW"}</div>
+        <div style={{backgroundColor: "#000", color: "#fff"}}>HomePageg de {isEUPage ? "EU": "ROW"}</div>
     )
 }
 
